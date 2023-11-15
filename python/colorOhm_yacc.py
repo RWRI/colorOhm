@@ -22,6 +22,7 @@ def p_operacao(p):
     '''
         operacao : declarando 
                   | definicaoValor
+                  | operacaoParalelo
                   | mostrar
     '''
     p[0] = p[1] + f"\n   "
@@ -61,6 +62,13 @@ def p_definicaoValor(p):
         print("Variavel não declarada!")
     Vars[existeVar(p[1])]['value'] = p[3]
     p[0] = f'{p[1]} = {p[3]}{p[4]}\n    '
+    
+def p_operacaoParalelo(p):
+    '''
+        operacaoParalelo : VARIAVEL ATRIBUICAO VARIAVEL PARALELO VARIAVEL TERMINADOR_LINHA
+    '''
+    
+    p[0] = f'{p[1]} = ({p[3]}*{p[5]})/({p[3]}+{p[5]})\n    ' 
 
 def p_serie(p):
     '''
