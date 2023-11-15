@@ -6,7 +6,25 @@ int main(){
    a = 2;
     
    
-   printf("%f\n",a);
+   float b;
+   
+   
+   b = 2;
+    
+   
+   float c;
+   
+   
+   c = (a*b)/(a+b);
+    
+   
+   printf("%f\n",c);
+    
+   
+   c = a + b;
+    
+   
+   printf("%f\n",c);
     
    
    

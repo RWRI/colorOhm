@@ -23,6 +23,7 @@ def p_operacao(p):
         operacao : declarando 
                   | definicaoValor
                   | operacaoParalelo
+                  | operacaoSerie
                   | mostrar
     '''
     p[0] = p[1] + f"\n   "
@@ -68,13 +69,13 @@ def p_operacaoParalelo(p):
         operacaoParalelo : VARIAVEL ATRIBUICAO VARIAVEL PARALELO VARIAVEL TERMINADOR_LINHA
     '''
     
-    p[0] = f'{p[1]} = ({p[3]}*{p[5]})/({p[3]}+{p[5]})\n    ' 
+    p[0] = f'{p[1]} = ({p[3]}*{p[5]})/({p[3]}+{p[5]}){p[6]}\n    ' 
 
-def p_serie(p):
+def p_operacaoSerie(p):
     '''
-        operacaoSerie : VARIAVEL ATRIBUICAO VARIAVEL + VARIAVEL TERMINADOR_LINHA
+        operacaoSerie : VARIAVEL ATRIBUICAO VARIAVEL SERIE VARIAVEL TERMINADOR_LINHA
     '''
-    p[0] = f'{p[1]} = {p[3]} + {p[4]}'
+    p[0] = f'{p[1]} = {p[3]} + {p[5]}{p[6]}\n    '
 
 def p_mostrar(p):
     '''
@@ -90,7 +91,13 @@ data0 = '''
     ohm 
         value a;
         a = 2;
-        show[a];
+        value b;
+        b = 2;
+        value c;
+        c = a|b;
+        show[c];
+        c = a:b;
+        show[c];
     endohm
 '''
 
