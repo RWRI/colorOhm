@@ -22,12 +22,6 @@ def p_operacao(p):
     '''
         operacao : declarando 
                   | definicaoValor
-                  | definicaoResistor
-                  | conversao1
-                  | conversao2
-                  | conversaoGenerica
-                  | operacaoSerie
-                  | operacaoParalelo 
                   | mostrar
     '''
     p[0] = p[1] + f"\n   "
@@ -46,30 +40,31 @@ def p_operacoes(p):
 
 def p_tipo(p):
     '''
-        tipo: RESISTOR | VALOR_RESISTOR
+        tipo : RESISTOR 
+             | VALOR_RESISTOR
     '''
     p[0] = 'float'
 
 def p_declarando(p):
     '''
-        declarando: tipo VARIAVEL TERMINADOR_LINHA
+        declarando : tipo VARIAVEL TERMINADOR_LINHA
     '''
-    vars.append(
+    Vars.append(
         {'name': p[2], 'type': p[1], 'value': None})
     p[0] = f'float {p[2]}{p[3]}\n   '
 
 def p_definicaoValor(p):
     '''
-        definicaoValor: VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA
+        definicaoValor : VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA
     '''
     if existeVar(p[1]) == -1:
         print("Variavel não declarada!")
-    vars[existeVar(p[1])]['value'] = p[3]
+    Vars[existeVar(p[1])]['value'] = p[3]
     p[0] = f'{p[1]} = {p[3]}{p[4]}\n    '
 
 def p_mostrar(p):
     '''
-        mostrar: MOSTRAR ABRE_COLCHETE VARIAVEL FECHA_COLCHETE TERMINADOR_LINHA
+        mostrar : MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA
     '''
     p[0] = f'printf("%f\\n",{p[3]}){p[5]}\n    '
 

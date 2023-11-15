@@ -18,7 +18,7 @@ tokens = [
     'VIRGULA',
     'PONTO',
     'ABRE_COLCHETES',
-    'FECHA_COLHETES',
+    'FECHA_COLCHETES',
     'COR',
     'VARIAVEL',
     'VALOR',
@@ -30,14 +30,14 @@ t_PARALELO = r'\|'
 t_SERIE = r':'
 t_VIRGULA = r","
 t_PONTO = r'.'
-t_ABRE_COLCHETES = r'['
-t_FECHA_COLHETES = r'['
+t_ABRE_COLCHETES = r'\['
+t_FECHA_COLCHETES = r'\]'
 t_COR = r'k|m|r|o|y|g|d|v|a|w'
 t_VALOR = r'\d+(.\d+)?'
 
 def t_VARIAVEL(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'VAR')
+    t.type = reserved.get(t.value, 'VARIAVEL')
     return t
 
 t_ignore = ' \t'
