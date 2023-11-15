@@ -20,10 +20,8 @@ tokens = [
     'ABRE_COLCHETES',
     'FECHA_COLHETES',
     'COR',
-    'TIPO',
     'VARIAVEL',
     'VALOR',
-    'CONVERSAO',
 ] + list(reserved.values())
 
 t_TERMINADOR_LINHA = r';'
@@ -35,6 +33,7 @@ t_PONTO = r'.'
 t_ABRE_COLCHETES = r'['
 t_FECHA_COLHETES = r'['
 t_COR = r'k|m|r|o|y|g|d|v|a|w'
+t_VALOR = r'\d+(.\d+)?'
 
 def t_VARIAVEL(t):
     r'[a-zA-Z_][a-zA-Z0-9_]*'
