@@ -52,3 +52,6 @@
 %type <pnt> mostrando
 %type <pnt> operacoes
 %type <pnt> algoritmo
+
+modeloResistor: ABRE_COLCHETES COR VIRGULA COR VIRGULA COR FECHA_COLCHETES
+| ABRE_COLCHETES COR VIRGULA COR VIRGULA COR VIRGULA COR FECHA_COLCHETES

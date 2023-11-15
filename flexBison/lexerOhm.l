@@ -4,15 +4,14 @@
 
 %option noyywrap
 
-
 letra[a-zA-Z]
 digito[0-9]
 cor(k|m|r|o|y|g|d|v|a|w)
 resistor(resistor)
-valorResitor(value)
+valorResistor(value)
 conversaoValor(\(value\))
 conversaoResistor(\(resistor\))
-[ \t\n]
+ponto(.)
 
 %%
 "ohm"           {return INICIO;}
@@ -22,24 +21,24 @@ conversaoResistor(\(resistor\))
 "|"             {return PARALELO;}
 ":"             {return SERIE;}
 ","             {return VIRGULA;}
-"."             {return PONTO;}
 "["             {return ABRE_COLCHETES;}
 "]"             {return FECHA_COLCHETES;}
 "show"          {return MOSTRAR;}
 
 ({cor})                                 {return COR;}
 ({valorResistor})                       {return VALOR_RESISTOR;}
-({resistor}|{valorResitor})             {return TIPO;}
+({resistor}|{valorResistor})             {return TIPO;}
 ({letra}+({digito}|{letra})*)           {return VARIAVEL;}
 ({digito}+)|({digito}+{ponto}{digito}+) {return VALOR;}
 ({conversaoValor})                      {return CONVERSAO_VALOR;}
 ({conversaoResistor})                   {return CONVERSAO_RESISTOR;}
 ({conversaoValor}|{conversaoResistor})  {return CONVERSAO;}
+
+[ \t\n]            ;
+.                  {return *yytext;} 
 %%
 
-
-int main(){
-    yylex();
-    return 0;
+int yywrap(void){
+    return 1;
 }
     
