@@ -62,6 +62,12 @@ def p_definicaoValor(p):
     Vars[existeVar(p[1])]['value'] = p[3]
     p[0] = f'{p[1]} = {p[3]}{p[4]}\n    '
 
+def p_serie(p):
+    '''
+        operacaoSerie : VARIAVEL ATRIBUICAO VARIAVEL + VARIAVEL TERMINADOR_LINHA
+    '''
+    p[0] = f'{p[1]} = {p[3]} + {p[4]}'
+
 def p_mostrar(p):
     '''
         mostrar : MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA
