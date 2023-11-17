@@ -8,6 +8,18 @@ reserved = {
     'value': 'VALOR_RESISTOR',
     '(value)': 'CONVERSAO_VALOR',
     '(resistor)': 'CONVERSAO_RESISTOR',
+    'k':'PRETO',
+    'm':'MARROM',
+    'r':'VERMELHO',
+    'o':'LARANJA',
+    'y':'AMARELO',
+    'g':'VERDE',
+    'b':'AZUL',
+    'v':'VIOLETA',
+    'a':'CINZA',
+    'w':'BRANCO',
+    'd':'DOURADO',
+    's':'PRATEADO'
 }
 
 tokens = [
@@ -16,10 +28,8 @@ tokens = [
     'PARALELO',
     'SERIE',
     'VIRGULA',
-    'PONTO',
     'ABRE_COLCHETES',
     'FECHA_COLCHETES',
-    'COR',
     'VARIAVEL',
     'VALOR',
 ] + list(reserved.values())
@@ -29,14 +39,12 @@ t_ATRIBUICAO = r'='
 t_PARALELO = r'\|'
 t_SERIE = r':'
 t_VIRGULA = r","
-t_PONTO = r'.'
 t_ABRE_COLCHETES = r'\['
 t_FECHA_COLCHETES = r'\]'
-t_COR = r'k|m|r|o|y|g|d|v|a|w'
 t_VALOR = r'\d+(.\d+)?'
 
 def t_VARIAVEL(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    r'[a-zA-Z_][a-zA-Z0-9_]+'
     t.type = reserved.get(t.value, 'VARIAVEL')
     return t
 
