@@ -60,14 +60,31 @@ def p_tipo(p):
 
 def p_declarando(p):
     '''
-        declarando : tipo VARIAVEL TERMINADOR_LINHA
+        declarando : tipo variaveis TERMINADOR_LINHA
     '''
-    Vars.append(
-        {'name': p[2], 'type': p[1], 'value': None})
+    vars = p[2].split(',')
     if(p[1] == 'value'):
         p[0] = f'float {p[2]}{p[3]}\n   '
+        for v in vars:
+            Vars.append({'name': v, 'type': p[1], 'value': None})
     else:
-        p[0] = f'char {p[2]}[10]{p[3]}\n   '
+        final = '_'
+        for v in vars:
+            Vars.append({'name': v, 'type': p[1], 'value': None})
+            final += ','+v+'[10]'
+        p[0] = f'char {final}{p[3]}\n   '
+
+def p_var(p):
+    '''
+        variaveis : VARIAVEL
+    '''
+    p[0] = p[1]
+
+def p_vars(p):
+    '''
+        variaveis : variaveis VIRGULA VARIAVEL
+    '''
+    p[0] = F'{p[1]}{p[2]}{p[3]}'
 
 def p_definicaoValor(p):
     '''

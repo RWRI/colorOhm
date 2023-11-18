@@ -8,19 +8,19 @@ codigo0 = '''
 
 codigo1 = '''
     ohm 
-        resistor re;
+        resistor re, res;
         re = [r,k,o];
+        res = [r,k,o];
         show[re];
+        show[res];
     endohm
 '''
 
 codigo2 = '''
     ohm 
-        value v1;
+        value v1, v2, v3;
         v1 = 2;
-        value v2;
         v2 = 3;
-        value v3;
         v3 = v1:v2;
         show[v3];
     endohm
@@ -28,13 +28,10 @@ codigo2 = '''
 
 codigo3 = '''
     ohm 
-        value v1;
+        value v1, v2, v3, v4;
         v1 = 2;
-        value v2;
         v2 = 3;
-        value v3;
         v3 = 3;
-        value v4;
         v4 = v1:v2:v3;
         show[v4];
     endohm
@@ -42,11 +39,9 @@ codigo3 = '''
 
 codigo4 = '''
     ohm 
-        value v1;
+        value v1, v2, v3;
         v1 = 2;
-        value v2;
         v2 = 2;
-        value v3;
         v3 = v1|v2;
         show[v3];
     endohm
@@ -54,13 +49,10 @@ codigo4 = '''
 
 codigo5 = '''
     ohm 
-        value v1;
+        value v1, v2, v3, v4;
         v1 = 200;
-        value v2;
         v2 = 200;
-        value v3;
-        v3 = 200;
-        value v4;
+        v3 = 100;
         v4 = v1|v2|v3;
         show[v4];
     endohm

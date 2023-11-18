@@ -44,7 +44,7 @@ t_FECHA_COLCHETES = r'\]'
 t_VALOR = r'\d+(.\d+)?'
 
 def t_VARIAVEL(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]+'
+    r'[a-zA-Z_][a-zA-Z0-9_]*'
     t.type = reserved.get(t.value, 'VARIAVEL')
     return t
 

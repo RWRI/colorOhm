@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ABRE_COLCHETES AMARELO ATRIBUICAO AZUL BRANCO CINZA CONVERSAO_RESISTOR CONVERSAO_VALOR DOURADO FECHA_COLCHETES FIM INICIO LARANJA MARROM MOSTRAR PARALELO PRATEADO PRETO RESISTOR SERIE TERMINADOR_LINHA VALOR VALOR_RESISTOR VARIAVEL VERDE VERMELHO VIOLETA VIRGULAprograma : INICIO operacoes FIM\n        operacao : declarando \n                  | definicaoValor\n                  | definicaoResistor\n                  | operacaoParalelo\n                  | operacaoSerie\n                  | mostrar\n    \n        operacoes : operacao \n    \n        operacoes : operacoes operacao \n    \n        tipo : RESISTOR \n             | VALOR_RESISTOR\n    \n        declarando : tipo VARIAVEL TERMINADOR_LINHA\n    \n        definicaoValor : VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA\n    \n        definicaoResistor : VARIAVEL ATRIBUICAO modeloResistor TERMINADOR_LINHA\n    \n        modeloResistor : ABRE_COLCHETES cor VIRGULA cor VIRGULA cor FECHA_COLCHETES\n\n    \n        modeloResistor : ABRE_COLCHETES cor VIRGULA cor VIRGULA cor VIRGULA cor FECHA_COLCHETES\n\n    \n        cor : PRETO\n            | MARROM\n            | VERMELHO\n            | LARANJA\n            | AMARELO\n            | VERDE\n            | AZUL\n            | VIOLETA\n            | CINZA\n            | BRANCO\n            | DOURADO\n            | PRATEADO\n    \n        operacaoParalelo : VARIAVEL ATRIBUICAO resParalelo TERMINADOR_LINHA\n    \n        resParalelo : VARIAVEL PARALELO VARIAVEL\n    \n        resParalelo : resParalelo PARALELO VARIAVEL\n    \n        operacaoSerie : VARIAVEL ATRIBUICAO resSerie TERMINADOR_LINHA\n    \n        resSerie : VARIAVEL SERIE VARIAVEL\n    \n        resSerie : resSerie SERIE VARIAVEL\n    \n        mostrar : MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA\n    '
+_lr_signature = 'ABRE_COLCHETES AMARELO ATRIBUICAO AZUL BRANCO CINZA CONVERSAO_RESISTOR CONVERSAO_VALOR DOURADO FECHA_COLCHETES FIM INICIO LARANJA MARROM MOSTRAR PARALELO PRATEADO PRETO RESISTOR SERIE TERMINADOR_LINHA VALOR VALOR_RESISTOR VARIAVEL VERDE VERMELHO VIOLETA VIRGULAprograma : INICIO operacoes FIM\n        operacao : declarando \n                  | definicaoValor\n                  | definicaoResistor\n                  | operacaoParalelo\n                  | operacaoSerie\n                  | mostrar\n    \n        operacoes : operacao \n    \n        operacoes : operacoes operacao \n    \n        tipo : RESISTOR \n             | VALOR_RESISTOR\n    \n        declarando : tipo variaveis TERMINADOR_LINHA\n    \n        variaveis : VARIAVEL\n    \n        variaveis : variaveis VIRGULA VARIAVEL\n    \n        definicaoValor : VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA\n    \n        definicaoResistor : VARIAVEL ATRIBUICAO modeloResistor TERMINADOR_LINHA\n    \n        modeloResistor : ABRE_COLCHETES cor VIRGULA cor VIRGULA cor FECHA_COLCHETES\n\n    \n        modeloResistor : ABRE_COLCHETES cor VIRGULA cor VIRGULA cor VIRGULA cor FECHA_COLCHETES\n\n    \n        cor : PRETO\n            | MARROM\n            | VERMELHO\n            | LARANJA\n            | AMARELO\n            | VERDE\n            | AZUL\n            | VIOLETA\n            | CINZA\n            | BRANCO\n            | DOURADO\n            | PRATEADO\n    \n        operacaoParalelo : VARIAVEL ATRIBUICAO resParalelo TERMINADOR_LINHA\n    \n        resParalelo : VARIAVEL PARALELO VARIAVEL\n    \n        resParalelo : resParalelo PARALELO VARIAVEL\n    \n        operacaoSerie : VARIAVEL ATRIBUICAO resSerie TERMINADOR_LINHA\n    \n        resSerie : VARIAVEL SERIE VARIAVEL\n    \n        resSerie : resSerie SERIE VARIAVEL\n    \n        mostrar : MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA\n    '
     
-_lr_action_items = {'INICIO':([0,],[2,]),'$end':([1,16,],[0,-1,]),'VARIAVEL':([2,3,4,5,6,7,8,9,10,11,14,15,17,19,20,21,29,30,31,32,33,34,35,36,56,],[12,12,-8,-2,-3,-4,-5,-6,-7,18,-10,-11,-9,22,28,-12,51,52,-13,-14,-29,53,-32,54,-35,]),'MOSTRAR':([2,3,4,5,6,7,8,9,10,17,21,31,32,33,35,56,],[13,13,-8,-2,-3,-4,-5,-6,-7,-9,-12,-13,-14,-29,-32,-35,]),'RESISTOR':([2,3,4,5,6,7,8,9,10,17,21,31,32,33,35,56,],[14,14,-8,-2,-3,-4,-5,-6,-7,-9,-12,-13,-14,-29,-32,-35,]),'VALOR_RESISTOR':([2,3,4,5,6,7,8,9,10,17,21,31,32,33,35,56,],[15,15,-8,-2,-3,-4,-5,-6,-7,-9,-12,-13,-14,-29,-32,-35,]),'FIM':([3,4,5,6,7,8,9,10,17,21,31,32,33,35,56,],[16,-8,-2,-3,-4,-5,-6,-7,-9,-12,-13,-14,-29,-32,-35,]),'ATRIBUICAO':([12,],[19,]),'ABRE_COLCHETES':([13,19,],[20,27,]),'TERMINADOR_LINHA':([18,23,24,25,26,50,51,52,53,54,61,63,],[21,31,32,33,35,56,-30,-33,-31,-34,-15,-16,]),'VALOR':([19,],[23,]),'PARALELO':([22,25,51,53,],[29,34,-30,-31,]),'SERIE':([22,26,52,54,],[30,36,-33,-34,]),'PRETO':([27,55,58,60,],[38,38,38,38,]),'MARROM':([27,55,58,60,],[39,39,39,39,]),'VERMELHO':([27,55,58,60,],[40,40,40,40,]),'LARANJA':([27,55,58,60,],[41,41,41,41,]),'AMARELO':([27,55,58,60,],[42,42,42,42,]),'VERDE':([27,55,58,60,],[43,43,43,43,]),'AZUL':([27,55,58,60,],[44,44,44,44,]),'VIOLETA':([27,55,58,60,],[45,45,45,45,]),'CINZA':([27,55,58,60,],[46,46,46,46,]),'BRANCO':([27,55,58,60,],[47,47,47,47,]),'DOURADO':([27,55,58,60,],[48,48,48,48,]),'PRATEADO':([27,55,58,60,],[49,49,49,49,]),'FECHA_COLCHETES':([28,38,39,40,41,42,43,44,45,46,47,48,49,59,62,],[50,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,61,63,]),'VIRGULA':([37,38,39,40,41,42,43,44,45,46,47,48,49,57,59,],[55,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,58,60,]),}
+_lr_action_items = {'INICIO':([0,],[2,]),'$end':([1,16,],[0,-1,]),'VARIAVEL':([2,3,4,5,6,7,8,9,10,11,14,15,17,20,21,22,23,32,33,34,35,36,37,38,39,59,],[12,12,-8,-2,-3,-4,-5,-6,-7,19,-10,-11,-9,24,30,-12,31,54,55,-15,-16,-31,56,-34,57,-37,]),'MOSTRAR':([2,3,4,5,6,7,8,9,10,17,22,34,35,36,38,59,],[13,13,-8,-2,-3,-4,-5,-6,-7,-9,-12,-15,-16,-31,-34,-37,]),'RESISTOR':([2,3,4,5,6,7,8,9,10,17,22,34,35,36,38,59,],[14,14,-8,-2,-3,-4,-5,-6,-7,-9,-12,-15,-16,-31,-34,-37,]),'VALOR_RESISTOR':([2,3,4,5,6,7,8,9,10,17,22,34,35,36,38,59,],[15,15,-8,-2,-3,-4,-5,-6,-7,-9,-12,-15,-16,-31,-34,-37,]),'FIM':([3,4,5,6,7,8,9,10,17,22,34,35,36,38,59,],[16,-8,-2,-3,-4,-5,-6,-7,-9,-12,-15,-16,-31,-34,-37,]),'ATRIBUICAO':([12,],[20,]),'ABRE_COLCHETES':([13,20,],[21,29,]),'TERMINADOR_LINHA':([18,19,25,26,27,28,31,53,54,55,56,57,64,66,],[22,-13,34,35,36,38,-14,59,-32,-35,-33,-36,-17,-18,]),'VIRGULA':([18,19,31,40,41,42,43,44,45,46,47,48,49,50,51,52,60,62,],[23,-13,-14,58,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,61,63,]),'VALOR':([20,],[25,]),'PARALELO':([24,27,54,56,],[32,37,-32,-33,]),'SERIE':([24,28,55,57,],[33,39,-35,-36,]),'PRETO':([29,58,61,63,],[41,41,41,41,]),'MARROM':([29,58,61,63,],[42,42,42,42,]),'VERMELHO':([29,58,61,63,],[43,43,43,43,]),'LARANJA':([29,58,61,63,],[44,44,44,44,]),'AMARELO':([29,58,61,63,],[45,45,45,45,]),'VERDE':([29,58,61,63,],[46,46,46,46,]),'AZUL':([29,58,61,63,],[47,47,47,47,]),'VIOLETA':([29,58,61,63,],[48,48,48,48,]),'CINZA':([29,58,61,63,],[49,49,49,49,]),'BRANCO':([29,58,61,63,],[50,50,50,50,]),'DOURADO':([29,58,61,63,],[51,51,51,51,]),'PRATEADO':([29,58,61,63,],[52,52,52,52,]),'FECHA_COLCHETES':([30,41,42,43,44,45,46,47,48,49,50,51,52,62,65,],[53,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,64,66,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'programa':([0,],[1,]),'operacoes':([2,],[3,]),'operacao':([2,3,],[4,17,]),'declarando':([2,3,],[5,5,]),'definicaoValor':([2,3,],[6,6,]),'definicaoResistor':([2,3,],[7,7,]),'operacaoParalelo':([2,3,],[8,8,]),'operacaoSerie':([2,3,],[9,9,]),'mostrar':([2,3,],[10,10,]),'tipo':([2,3,],[11,11,]),'modeloResistor':([19,],[24,]),'resParalelo':([19,],[25,]),'resSerie':([19,],[26,]),'cor':([27,55,58,60,],[37,57,59,62,]),}
+_lr_goto_items = {'programa':([0,],[1,]),'operacoes':([2,],[3,]),'operacao':([2,3,],[4,17,]),'declarando':([2,3,],[5,5,]),'definicaoValor':([2,3,],[6,6,]),'definicaoResistor':([2,3,],[7,7,]),'operacaoParalelo':([2,3,],[8,8,]),'operacaoSerie':([2,3,],[9,9,]),'mostrar':([2,3,],[10,10,]),'tipo':([2,3,],[11,11,]),'variaveis':([11,],[18,]),'modeloResistor':([20,],[26,]),'resParalelo':([20,],[27,]),'resSerie':([20,],[28,]),'cor':([29,58,61,63,],[40,60,62,65,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -38,28 +38,30 @@ _lr_productions = [
   ('operacoes -> operacoes operacao','operacoes',2,'p_operacoes','colorOhm_yacc.py',50),
   ('tipo -> RESISTOR','tipo',1,'p_tipo','colorOhm_yacc.py',56),
   ('tipo -> VALOR_RESISTOR','tipo',1,'p_tipo','colorOhm_yacc.py',57),
-  ('declarando -> tipo VARIAVEL TERMINADOR_LINHA','declarando',3,'p_declarando','colorOhm_yacc.py',63),
-  ('definicaoValor -> VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA','definicaoValor',4,'p_definicaoValor','colorOhm_yacc.py',74),
-  ('definicaoResistor -> VARIAVEL ATRIBUICAO modeloResistor TERMINADOR_LINHA','definicaoResistor',4,'p_definicaoResistor','colorOhm_yacc.py',83),
-  ('modeloResistor -> ABRE_COLCHETES cor VIRGULA cor VIRGULA cor FECHA_COLCHETES','modeloResistor',7,'p_modeloResisor3','colorOhm_yacc.py',92),
-  ('modeloResistor -> ABRE_COLCHETES cor VIRGULA cor VIRGULA cor VIRGULA cor FECHA_COLCHETES','modeloResistor',9,'p_modeloResisor4','colorOhm_yacc.py',99),
-  ('cor -> PRETO','cor',1,'p_Cor','colorOhm_yacc.py',106),
-  ('cor -> MARROM','cor',1,'p_Cor','colorOhm_yacc.py',107),
-  ('cor -> VERMELHO','cor',1,'p_Cor','colorOhm_yacc.py',108),
-  ('cor -> LARANJA','cor',1,'p_Cor','colorOhm_yacc.py',109),
-  ('cor -> AMARELO','cor',1,'p_Cor','colorOhm_yacc.py',110),
-  ('cor -> VERDE','cor',1,'p_Cor','colorOhm_yacc.py',111),
-  ('cor -> AZUL','cor',1,'p_Cor','colorOhm_yacc.py',112),
-  ('cor -> VIOLETA','cor',1,'p_Cor','colorOhm_yacc.py',113),
-  ('cor -> CINZA','cor',1,'p_Cor','colorOhm_yacc.py',114),
-  ('cor -> BRANCO','cor',1,'p_Cor','colorOhm_yacc.py',115),
-  ('cor -> DOURADO','cor',1,'p_Cor','colorOhm_yacc.py',116),
-  ('cor -> PRATEADO','cor',1,'p_Cor','colorOhm_yacc.py',117),
-  ('operacaoParalelo -> VARIAVEL ATRIBUICAO resParalelo TERMINADOR_LINHA','operacaoParalelo',4,'p_operacaoParalelo','colorOhm_yacc.py',123),
-  ('resParalelo -> VARIAVEL PARALELO VARIAVEL','resParalelo',3,'p_resParalelo','colorOhm_yacc.py',129),
-  ('resParalelo -> resParalelo PARALELO VARIAVEL','resParalelo',3,'p_resParalelo2','colorOhm_yacc.py',135),
-  ('operacaoSerie -> VARIAVEL ATRIBUICAO resSerie TERMINADOR_LINHA','operacaoSerie',4,'p_operacaoSerie','colorOhm_yacc.py',141),
-  ('resSerie -> VARIAVEL SERIE VARIAVEL','resSerie',3,'p_resSerie','colorOhm_yacc.py',147),
-  ('resSerie -> resSerie SERIE VARIAVEL','resSerie',3,'p_resSerie2','colorOhm_yacc.py',153),
-  ('mostrar -> MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA','mostrar',5,'p_mostrar','colorOhm_yacc.py',159),
+  ('declarando -> tipo variaveis TERMINADOR_LINHA','declarando',3,'p_declarando','colorOhm_yacc.py',63),
+  ('variaveis -> VARIAVEL','variaveis',1,'p_var','colorOhm_yacc.py',79),
+  ('variaveis -> variaveis VIRGULA VARIAVEL','variaveis',3,'p_vars','colorOhm_yacc.py',85),
+  ('definicaoValor -> VARIAVEL ATRIBUICAO VALOR TERMINADOR_LINHA','definicaoValor',4,'p_definicaoValor','colorOhm_yacc.py',91),
+  ('definicaoResistor -> VARIAVEL ATRIBUICAO modeloResistor TERMINADOR_LINHA','definicaoResistor',4,'p_definicaoResistor','colorOhm_yacc.py',100),
+  ('modeloResistor -> ABRE_COLCHETES cor VIRGULA cor VIRGULA cor FECHA_COLCHETES','modeloResistor',7,'p_modeloResisor3','colorOhm_yacc.py',109),
+  ('modeloResistor -> ABRE_COLCHETES cor VIRGULA cor VIRGULA cor VIRGULA cor FECHA_COLCHETES','modeloResistor',9,'p_modeloResisor4','colorOhm_yacc.py',116),
+  ('cor -> PRETO','cor',1,'p_Cor','colorOhm_yacc.py',123),
+  ('cor -> MARROM','cor',1,'p_Cor','colorOhm_yacc.py',124),
+  ('cor -> VERMELHO','cor',1,'p_Cor','colorOhm_yacc.py',125),
+  ('cor -> LARANJA','cor',1,'p_Cor','colorOhm_yacc.py',126),
+  ('cor -> AMARELO','cor',1,'p_Cor','colorOhm_yacc.py',127),
+  ('cor -> VERDE','cor',1,'p_Cor','colorOhm_yacc.py',128),
+  ('cor -> AZUL','cor',1,'p_Cor','colorOhm_yacc.py',129),
+  ('cor -> VIOLETA','cor',1,'p_Cor','colorOhm_yacc.py',130),
+  ('cor -> CINZA','cor',1,'p_Cor','colorOhm_yacc.py',131),
+  ('cor -> BRANCO','cor',1,'p_Cor','colorOhm_yacc.py',132),
+  ('cor -> DOURADO','cor',1,'p_Cor','colorOhm_yacc.py',133),
+  ('cor -> PRATEADO','cor',1,'p_Cor','colorOhm_yacc.py',134),
+  ('operacaoParalelo -> VARIAVEL ATRIBUICAO resParalelo TERMINADOR_LINHA','operacaoParalelo',4,'p_operacaoParalelo','colorOhm_yacc.py',140),
+  ('resParalelo -> VARIAVEL PARALELO VARIAVEL','resParalelo',3,'p_resParalelo','colorOhm_yacc.py',146),
+  ('resParalelo -> resParalelo PARALELO VARIAVEL','resParalelo',3,'p_resParalelo2','colorOhm_yacc.py',152),
+  ('operacaoSerie -> VARIAVEL ATRIBUICAO resSerie TERMINADOR_LINHA','operacaoSerie',4,'p_operacaoSerie','colorOhm_yacc.py',158),
+  ('resSerie -> VARIAVEL SERIE VARIAVEL','resSerie',3,'p_resSerie','colorOhm_yacc.py',164),
+  ('resSerie -> resSerie SERIE VARIAVEL','resSerie',3,'p_resSerie2','colorOhm_yacc.py',170),
+  ('mostrar -> MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA','mostrar',5,'p_mostrar','colorOhm_yacc.py',176),
 ]
