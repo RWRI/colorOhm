@@ -14,7 +14,7 @@ def existeVar(name):
     return -1
 
 def valor(var):
-    id = existeVar(var);
+    id = existeVar(var)
     if(id == -1):
         print("Variavel "+var+" nao existente")
     else:
@@ -25,7 +25,7 @@ def valor(var):
 def p_main(p):
     'programa : INICIO operacoes FIM'
     f = open("interpretado.c", "w")
-    f.write(f"#include <stdio.h>\n#include <string.h>\nint main(){{\n   {p[2]}\n   return 0;\n}}")
+    f.write(f"#include <stdio.h>\n#include <string.h>\n\nint main(){{\n   {p[2]}\n   return 0;\n}}")
     f.close()
 
 def p_operacao(p):
@@ -173,16 +173,19 @@ def p_resSerie2(p):
 
 def p_mostrar(p):
     '''
-        mostrar : MOSTRAR ABRE_COLCHETES VARIAVEL FECHA_COLCHETES TERMINADOR_LINHA
+        mostrar : MOSTRAR ABRE_COLCHETES variaveis FECHA_COLCHETES TERMINADOR_LINHA
     '''
-    id = existeVar(p[3])
-    if(id == -1):
-        print("Variavel"+{p[3]}+"nao existente")
-    else:
-        if(Vars[id]['type'] == 'value'):
-            p[0] = f'printf("%f\\n",{p[3]}){p[5]}'
+    vars = p[3].split(',')
+    p[0] = ''
+    for v in vars:
+        id = existeVar(v)
+        if(id == -1):
+            print("Variavel"+{v}+"nao existente")
         else:
-            p[0] = f'printf("%s\\n",{p[3]}){p[5]}'
+            if(Vars[id]['type'] == 'value'):
+                p[0] += f'printf("{v} = %.2f\\n",{v}){p[5]}\n   '
+            else:
+                p[0] += f'printf("{v} = %s\\n",{v}){p[5]}\n   '
 
 parser = yacc.yacc()
 
