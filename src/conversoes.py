@@ -1,5 +1,29 @@
 import math
 
+def switchc1(case):
+        if case == 'k':
+            return 0
+        if case == 'm':
+            return 1
+        if case == 'r':
+            return 2
+        if case == 'o':
+            return 3
+        if case == 'y':
+            return 4
+        if case == 'g':
+            return 5
+        if case == 'b':
+            return 6
+        if case == 'v':
+            return 7
+        if case == 'a':
+            return 8
+        if case == 'w':
+            return 9
+        if case == 'd':
+            return -1
+
 def switch(case):
         if case == 0:
             return 'k'
@@ -21,6 +45,24 @@ def switch(case):
             return 'a'
         if case == 9:
             return 'w'
+
+def conversao1(p):
+    
+    valor = 0
+
+    if len(p)== 3:
+        valor = switchc1(p[0])*10
+        valor = valor + switchc1(p[1])
+        valor = valor*(10**(switchc1(p[2])))
+        
+
+    if len(p) == 4:
+        valor = switchc1(p[0])*100
+        valor = valor + switchc1(p[1])*10
+        valor = valor + switchc1(p[2])
+        valor = valor*(10**(switchc1(p[3])))
+
+    return valor
 
 def conversao2(p):
     if p>9:
@@ -56,5 +98,8 @@ def conversao2(p):
         
 
     return '['+ faixa1 + ',' + faixa2 + ',' + faixa3 +']'
-            
+
+
+print(conversao1(['r','r','r']))        
+print(conversao1(['r','r','r', 'd']))            
 print(conversao2(9))
