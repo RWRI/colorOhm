@@ -2,6 +2,7 @@ from numpy import split
 import ply.yacc as yacc
 
 from colorOhm_lex import tokens
+from conversoes import conversao1, conversao2, modeloResitor2vetor
 
 Vars = []
 
@@ -20,7 +21,9 @@ def valor(var):
     else:
         if(Vars[id]['type'] == 'value'):
             return var
-
+        else:
+            letras = modeloResitor2vetor(Vars[id]['value'])
+            return conversao1(letras)
 
 def p_main(p):
     'programa : INICIO operacoes FIM'
@@ -35,6 +38,9 @@ def p_operacao(p):
                   | definicaoResistor
                   | operacaoParalelo
                   | operacaoSerie
+                  | conversao1
+                  | conversao2
+                  | conversaoGenerica
                   | mostrar
     '''
     p[0] = p[1] + f"\n   "
@@ -171,6 +177,61 @@ def p_resSerie2(p):
     '''
     p[0] = f'{p[1]} + {valor(p[3])}'
 
+def p_conversao1(p):
+    '''
+        conversao1 : VARIAVEL ATRIBUICAO CONVERSAO_VALOR modeloResistor TERMINADOR_LINHA
+    '''
+    id = existeVar(p[1])
+    if  id == -1:
+        print("Variavel não declarada!")
+    if Vars[id]['type'] != "value":
+        print("Tipo incorreto para conversao")
+    valorRes = conversao1(modeloResitor2vetor(p[4]))
+    Vars[id]['value'] = valorRes
+    Vars[id]['type'] = 'value'
+    p[0] = f'{p[1]} = {valorRes}{p[5]}'
+
+def p_conversao2(p):
+    '''
+        conversao2 : VARIAVEL ATRIBUICAO CONVERSAO_RESISTOR VALOR TERMINADOR_LINHA
+    '''
+    id = existeVar(p[1])
+    if  id == -1:
+        print("Variavel não declarada!")
+    if Vars[id]['type'] != "resistor":
+        print("Tipo incorreto para conversao")
+    valorRes = conversao2(float(p[4]))
+    Vars[id]['value'] = valorRes
+    Vars[id]['type'] = 'resistor'
+    p[0] = f'strcpy({p[1]},"{valorRes}"){p[5]}'
+
+def p_conversaoGenerica(p):
+    '''
+        conversaoGenerica : VARIAVEL ATRIBUICAO conversao VARIAVEL TERMINADOR_LINHA
+    '''
+    id = existeVar(p[1])
+    if  id == -1:
+        print("Variavel não declarada!")
+    tipo = 'value' if (p[3] == "re2va") else 'resistor'
+    if Vars[id]['type'] != tipo:
+        print("Tipo incorreto para conversao")
+    id = existeVar(p[4])
+    if(tipo == 'value'):
+        valorRes = conversao1(modeloResitor2vetor(Vars[id]['value']))
+        Vars[existeVar(p[1])]['value'] = valorRes
+        p[0] = f'{p[1]} = {valorRes}{p[5]}'
+    else:
+        valorRes = conversao2(float(Vars[id]['value']))
+        Vars[existeVar(p[1])]['value'] = valorRes
+        p[0] = f'strcpy({p[1]},"{valorRes}"){p[5]}'
+
+def p_conversao(p):
+    '''
+        conversao : CONVERSAO_RESISTOR 
+                   | CONVERSAO_VALOR
+    '''
+    p[0] = p[1]
+
 def p_mostrar(p):
     '''
         mostrar : MOSTRAR ABRE_COLCHETES variaveis FECHA_COLCHETES TERMINADOR_LINHA
@@ -192,5 +253,3 @@ parser = yacc.yacc()
 from exemploCodigos import interpretar
 
 result = parser.parse(interpretar)
-
-print('\nSeu codigo foi interpretado com sucesso\n')

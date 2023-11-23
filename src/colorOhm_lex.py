@@ -6,8 +6,8 @@ reserved = {
     'show':'MOSTRAR',
     'resistor':'RESISTOR',
     'value': 'VALOR_RESISTOR',
-    '(value)': 'CONVERSAO_VALOR',
-    '(resistor)': 'CONVERSAO_RESISTOR',
+    're2va': 'CONVERSAO_VALOR',
+    'va2re': 'CONVERSAO_RESISTOR',
     'k':'PRETO',
     'm':'MARROM',
     'r':'VERMELHO',
@@ -44,7 +44,7 @@ t_FECHA_COLCHETES = r'\]'
 t_VALOR = r'\d+(.\d+)?'
 
 def t_VARIAVEL(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    r'[a-zA-Z_][a-zA-Z0-9]*'
     t.type = reserved.get(t.value, 'VARIAVEL')
     return t
 

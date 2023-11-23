@@ -94,12 +94,12 @@ def conversao2(p):
         
         faixa1 = switch(faixa1)
         faixa2 = switch(faixa2)
-        faixa3 = 'd'
-        
+        faixa3 = 'd'     
 
     return '['+ faixa1 + ',' + faixa2 + ',' + faixa3 +']'
 
-
-print(conversao1(['r','r','r']))        
-print(conversao1(['r','r','r', 'd']))            
-print(conversao2(9))
+def modeloResitor2vetor(mod):
+    caracteres = len(mod)-1
+    mod = mod[1:caracteres]
+    letras = mod.split(',')
+    return letras

@@ -67,4 +67,17 @@ codigo6 = '''
     endohm
 '''
 
-interpretar = codigo2
+codigo7 = '''
+    ohm
+        value r1, r3;
+        resistor r2, r4;
+        r1 =  re2va [r,r,r];
+        r2 =  va2re 220;
+        r4 = va2re r1;
+        r3 = re2va r2;
+        show[r1, r4];
+        show[r2, r3];
+    endohm
+'''
+
+interpretar = codigo7
