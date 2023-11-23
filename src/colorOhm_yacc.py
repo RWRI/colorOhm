@@ -145,6 +145,11 @@ def p_operacaoParalelo(p):
     '''
         operacaoParalelo : VARIAVEL ATRIBUICAO resParalelo TERMINADOR_LINHA
     '''
+    id = existeVar(p[1])
+    if  id == -1:
+        print("Variavel não declarada!")
+    if Vars[id]['type'] != "value":
+        print("Tipo incorreto para conversao")
     p[0] = f'{p[1]} = {p[3]}{p[4]}\n    ' 
 
 def p_resParalelo(p):
@@ -163,6 +168,11 @@ def p_operacaoSerie(p):
     '''
         operacaoSerie : VARIAVEL ATRIBUICAO resSerie TERMINADOR_LINHA
     '''
+    id = existeVar(p[1])
+    if  id == -1:
+        print("Variavel não declarada!")
+    if Vars[id]['type'] != "value":
+        print("Tipo incorreto para conversao")
     p[0] = f'{p[1]} = {p[3]}{p[4]}\n    '
 
 def p_resSerie(p):

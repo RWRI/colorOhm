@@ -80,4 +80,16 @@ codigo7 = '''
     endohm
 '''
 
-interpretar = codigo7
+codigo8 = '''
+    ohm
+        resistor r1, r2;
+        value r3, r4;
+        r1 = [r,k,m];
+        r2 = [r,k,m];
+        r3 = r1 : r2;
+        r4 = r1 | r2;
+        show[r3, r4];
+    endohm
+'''
+
+interpretar = codigo8
