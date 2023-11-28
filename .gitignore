@@ -1,2 +1,3 @@
 *.out
-__pyache__/
+*.exe
+__pycache__/
