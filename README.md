@@ -31,6 +31,8 @@ As operações são feitas utilizando o seguinte modelo:
 
 ![Código de cores resistor](https://embarcados.com.br/wp-content/uploads/2022/05/image-31.png)
 
+A documentação completa está presente no arquivo [DocumentacaoColorOhm](/DocumentacaoColorOhm.pdf), neste arquivo encontram-se as definições realizadas para a linguagem, bem como as expressões regulares e autômatos desenvolvidos para ela.
+
 ### Tecnologias
 
 Para construir essa linguagem foi utilizado da linguagem python.
@@ -88,7 +90,7 @@ O projeto, também conta com algumas bibliotecas para correta execução do cód
 
 ### Como rodar
 
-Vários exemplos de algoritmos da linguagem foram criados e podem ser encontrados no arquivo [exemplosCodigos.py](/src/exemploCodigos.py). Neste arquivo encontra-se um variável denominada _interpretar_ que indica qual dos códigos criados será interpretado.
+Vários exemplos de algoritmos da linguagem foram criados e podem ser encontrados no arquivo [exemplosCodigos](/src/exemploCodigos.py). Neste arquivo encontra-se um variável denominada _interpretar_ que indica qual dos códigos criados será interpretado.
 
 Sendo assim, para executar a tradução da linguagem colorOhm para C basta colocar na váriavel _intrepretar_ qual código você deseja dos que já estão prontos ou pode criar um novo dependendo da sua aplicação.
 
@@ -96,7 +98,7 @@ Após a variável estar setada e o arquivo salvo basta executar no terminal o se
 
 > `python3 src/colorOhm_yacc.py`
 
-Com este comando o código traduzido estará presente no arquivo [interpretado.c](/interpretado.c) e como se trata de um código C pode ser executado pelo seguinte comando no terminal:
+Com este comando o código traduzido estará presente no arquivo [interpretado](/interpretado.c) e como se trata de um código C pode ser executado pelo seguinte comando no terminal:
 
 > `gcc interpretado.c`
 
