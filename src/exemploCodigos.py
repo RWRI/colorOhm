@@ -92,4 +92,24 @@ codigo8 = '''
     endohm
 '''
 
-interpretar = codigo8
+codigoDocumentacao = '''
+    ohm
+        value r1, r2, r3, rz;
+        resistor rc, rb, ra;
+        
+        r1 = 200;
+        rc = [m,m,r];
+        
+        r2 = re2va [g,r,m];
+        ra = va2re 1500;
+        rb = va2re r1; 
+   
+        r3 = r1 : r2;
+        rz = rc | rb | ra; 
+
+        show[r1,rc,r2,ra,rb,r3,rz];
+
+    endohm
+'''
+
+interpretar = codigoDocumentacao

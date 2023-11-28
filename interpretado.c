@@ -2,18 +2,26 @@
 #include <string.h>
 
 int main(){
-   char _,r1[10],r2[10];
+   float r1,r2,r3,rz;
    
-   float r3,r4;
+   char _,rc[10],rb[10],ra[10];
    
-   strcpy(r1,"[r,k,m]");
-   strcpy(r2,"[r,k,m]");
-   r3 = 200 + 200;
+   r1 = 200;
+   strcpy(rc,"[m,m,r]");
+   r2 = 520;
+   strcpy(ra,"[m,g,r]");
+   strcpy(rb,"[r,k,m]");
+   r3 = r1 + r2;
     
-   r4 = (1.0/((1.0/200)+1.0/(200)));
+   rz = (1.0/((1.0/(1.0/((1.0/1100)+1.0/(200))))+1.0/(1500)));
     
+   printf("r1 = %.2f\n",r1);
+   printf("rc = %s\n",rc);
+   printf("r2 = %.2f\n",r2);
+   printf("ra = %s\n",ra);
+   printf("rb = %s\n",rb);
    printf("r3 = %.2f\n",r3);
-   printf("r4 = %.2f\n",r4);
+   printf("rz = %.2f\n",rz);
    
    
    return 0;
