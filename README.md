@@ -64,7 +64,7 @@ A instalação do Python no Windows segue o padrão da maioria dos programas ins
 <details>
     <summary>Como instalar o Python no Linux</summary>
     
-Os sistemas GNU/Linux mais recentes ja possuem uma versão do Python instalada junto com o sistema operacional. Podemos checar com o seguinte comando:
+Os sistemas GNU/Linux mais recentes já possuem uma versão do Python instalada junto com o sistema operacional. Podemos checar com o seguinte comando:
 
 `which python3`
 
@@ -80,7 +80,7 @@ Os sistemas GNU/Linux mais recentes ja possuem uma versão do Python instalada j
 
 <details>
   <summary>Instalação de bibliotecas</summary>
-O projeto, também conta com algumas bibliotecas para correta execução do código. Sendo assim, tanto para o Windows quanto para o Linux é necessário abrir o terminal e digitar os seguinte comandos para instalar as bibliotecas necessárias:
+O projeto também conta com algumas bibliotecas para correta execução do código. Sendo assim, tanto para o Windows quanto para o Linux é necessário abrir o terminal e digitar os seguinte comandos para instalar as bibliotecas necessárias:
 
 - `pip install ply`
 
@@ -98,11 +98,11 @@ Após a variável estar setada e o arquivo salvo basta executar no terminal o se
 
 > `python3 src/colorOhm_yacc.py`
 
-Com este comando o código traduzido estará presente no arquivo [interpretado](/interpretado.c) e como se trata de um código C pode ser executado pelo seguinte comando no terminal:
+Com este comando, o código traduzido estará presente no arquivo [interpretado](/interpretado.c) e como se trata de um código C pode ser executado pelo seguinte comando no terminal:
 
 > `gcc interpretado.c`
 
-Por fim, o arquivo executavel pode ser aberto para visualizar o resultado do código interpretado.
+Por fim, o arquivo executável pode ser aberto para visualizar o resultado do código interpretado.
 
 - No Windows: `./a.exe`
 - No Linux: `./a.out`
