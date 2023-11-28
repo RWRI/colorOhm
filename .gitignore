@@ -4,4 +4,4 @@
 
 __pycache__/
 
-./src/parsetab.py
+parsetab.py
