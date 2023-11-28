@@ -37,10 +37,7 @@ A documentação completa está presente no arquivo [DocumentacaoColorOhm](/Docu
 
 Para construir essa linguagem foi utilizado da linguagem python.
 
-- ![[Python][Python]][Python-url]]
-
-[Python]: https://www.python.org/static/img/python-logo@2x.png
-[Python-url]: https://www.python.org/
+<a href="https://www.python.org/" target="_blank"><img src="https://www.python.org/static/img/python-logo@2x.png" width="150"></a>
 
 ## Introdução
 
